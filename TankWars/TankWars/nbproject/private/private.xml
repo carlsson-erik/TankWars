@@ -5,11 +5,13 @@
         <group>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/ListServer.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/client/Client.java</file>
-            <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/ListPackage.java</file>
+            <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/client/ServerItem.java</file>
+            <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/ServerData.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/client/Note.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/MainSocket.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/ListUser.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/client/Map.java</file>
+            <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/serverList/UserPackage.java</file>
             <file>file:/C:/Users/Erik/Dropbox/Pro2/TankWars/TankWars/src/client/ListSocket.java</file>
         </group>
     </open-files>

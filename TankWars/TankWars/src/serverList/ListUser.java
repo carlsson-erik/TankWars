@@ -82,7 +82,7 @@ public class ListUser implements Runnable {
             try {
                 currentPackage = (UserPackage) input.readObject();
             } catch (IOException ex) {
-                Logger.getLogger(ListUser.class.getName()).log(Level.SEVERE, null, ex);
+                closeStreams();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ListUser.class.getName()).log(Level.SEVERE, null, ex);
             }

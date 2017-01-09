@@ -26,9 +26,11 @@ public class ListSocket implements Runnable {
     private ObjectOutputStream output;
     private ObjectInputStream input;
     private ArrayList<ServerData> servers;
+    private boolean streamsReady;
 
     public ListSocket(String ip, int port) {
         t = new Thread(this, "ListSocket");
+        streamsReady = false;
         try {
             socket = new Socket(InetAddress.getByName(ip), port);
         } catch (IOException ex) {
@@ -58,6 +60,7 @@ public class ListSocket implements Runnable {
         } catch (IOException ex) {
             Logger.getLogger(ListUser.class.getName()).log(Level.SEVERE, null, ex);
         }
+        streamsReady = true;
     }
 
     public void whileConnected() {
@@ -85,10 +88,12 @@ public class ListSocket implements Runnable {
     }
 
     public void output(UserPackage u) {
+        if(streamsReady){
         try {
             output.writeObject(u);
         } catch (IOException ex) {
             Logger.getLogger(ListSocket.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }
     

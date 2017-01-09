@@ -72,6 +72,7 @@ public class Client extends JFrame implements Runnable, ActionListener {
 
     private String ip;
     private int port;
+    private String key;
 
     //ServerList
     private ListSocket listSocket;
@@ -92,7 +93,6 @@ public class Client extends JFrame implements Runnable, ActionListener {
         System.out.println(ip);
         System.out.println(port);
         listSocket = new ListSocket(ip, port);
-
         t.start();
     }
 
@@ -213,13 +213,16 @@ public class Client extends JFrame implements Runnable, ActionListener {
         while (running) {
             try {
                 Thread.sleep(500);
+
+                listSocket.output(new UserPackage(key));
+
             } catch (InterruptedException ex) {
                 Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if(listSocket.getServers().size() > serversP.getComponentCount()){
+            if (listSocket.getServers().size() > serversP.getComponentCount()) {
                 serversP.removeAll();
-                for(ServerData s : listSocket.getServers()){
-                    serversP.add(new ServerItem(s.getName(),s.getPlayers(),s.getIp(),s.getPort()));
+                for (ServerData s : listSocket.getServers()) {
+                    serversP.add(new ServerItem(s.getName(), s.getPlayers(), s.getIp(), s.getPort()));
                 }
             }
             this.revalidate();
@@ -266,7 +269,7 @@ public class Client extends JFrame implements Runnable, ActionListener {
 
                 ip = parts[0]; // The following part reads from the array
                 port = Integer.parseInt(parts[1]);
-
+                key = parts[2];
             }
 
         }
@@ -338,7 +341,7 @@ public class Client extends JFrame implements Runnable, ActionListener {
             case "Refresh":
                 listSocket.clearServers();
                 listSocket.output(new UserPackage(true));
-                
+
                 break;
             case "Create":
                 createGame();
